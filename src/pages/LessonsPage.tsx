@@ -1,6 +1,7 @@
-import { lessons } from "@/data/financeData";
+import { lessons, quizzes } from "@/data/financeData";
+import { lessonContent } from "@/data/lessonContent";
 import { useProgress } from "@/hooks/useProgress";
-import { CheckCircle2, Circle, Clock, ChevronRight } from "lucide-react";
+import { CheckCircle2, Circle, Clock, ChevronRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const MODULE_ICONS = ["💰", "📊", "🏦", "📈", "📉", "🛡️"];
