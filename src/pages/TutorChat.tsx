@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User } from "lucide-react";
+import { findSmartAnswer } from "@/data/smartAnswers";
 
 interface Message {
   role: "user" | "assistant";
@@ -149,9 +150,15 @@ export default function TutorChat() {
           addAssistant("Pick a topic and I'll teach you! Here are some options:\n\n• Money Basics\n• Budgeting\n• Inflation\n• Emergency Funds\n• Banking\n• Stocks & Mutual Funds\n• Compound Interest\n• Risk Management");
         }
       } else {
-        addAssistant(
-          `Great question! I'd love to help with that. 🤔\n\nTo give you the best lesson, try asking about one of these topics:\n\n• **Money Basics** — What is money?\n• **Budgeting** — The 50/30/20 rule\n• **Inflation** — Why prices go up\n• **Emergency Funds** — Your financial safety net\n• **Banking** — Checking vs savings\n• **Stocks & Mutual Funds** — Intro to investing\n• **Compound Interest** — The 8th wonder of the world\n• **Risk Management** — Protecting your money\n\nJust type a topic name to start learning!`
-        );
+        // Try smart Q&A for free-form questions
+        const smartAnswer = findSmartAnswer(text);
+        if (smartAnswer) {
+          addAssistant(smartAnswer);
+        } else {
+          addAssistant(
+            `Great question! 🤔 I don't have a specific lesson on that yet, but here's what I can teach you:\n\n**📚 Structured Lessons:**\n• Money Basics · Budgeting · Inflation\n• Emergency Funds · Banking · Compound Interest\n• Stocks & Mutual Funds · Risk Management\n\n**💬 Quick Answers:**\nTry asking about: credit scores, taxes, ETFs, dividends, crypto, retirement, real estate, insurance, loans, credit cards, market crashes, dollar cost averaging, net worth, or saving tips!\n\nJust type your question and I'll explain it simply.`
+          );
+        }
       }
 
       setIsTyping(false);
@@ -211,10 +218,11 @@ export default function TutorChat() {
         <div className="flex flex-wrap gap-2 mb-3">
           {[
             "Teach me about budgeting",
-            "What is compound interest?",
-            "Explain inflation",
-            "How do stocks work?",
-            "Tell me about emergency funds",
+            "What is a credit score?",
+            "How do ETFs work?",
+            "Explain compound interest",
+            "How should I start investing?",
+            "What is dollar cost averaging?",
           ].map((q) => (
             <button
               key={q}
