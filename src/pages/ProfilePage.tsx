@@ -169,23 +169,23 @@ export default function ProfilePage() {
 
   return (
     <div className="space-y-6 animate-slide-up">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-foreground">Profile</h1>
-          <p className="text-muted-foreground mt-1">Manage your account & preferences</p>
+          <p className="text-muted-foreground mt-1 text-sm">Manage your account & preferences</p>
         </div>
         {!editing ? (
-          <Button variant="outline" size="sm" onClick={() => setEditing(true)}>
+          <Button variant="outline" size="sm" onClick={() => setEditing(true)} className="w-full sm:w-auto">
             <Pencil className="h-4 w-4 mr-2" />
             Edit Profile
           </Button>
         ) : (
-          <div className="flex gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setEditing(false)}>
+          <div className="flex gap-2 w-full sm:w-auto">
+            <Button variant="ghost" size="sm" onClick={() => setEditing(false)} className="flex-1 sm:flex-initial">
               <X className="h-4 w-4 mr-2" />
               Cancel
             </Button>
-            <Button size="sm" onClick={handleSave} disabled={saving}>
+            <Button size="sm" onClick={handleSave} disabled={saving} className="flex-1 sm:flex-initial">
               <Check className="h-4 w-4 mr-2" />
               Save
             </Button>
@@ -193,10 +193,9 @@ export default function ProfilePage() {
         )}
       </div>
 
-      {/* User Info Card */}
-      <div className="bg-card rounded-2xl p-6 border border-border">
-        <div className="flex items-center gap-5">
-          <div className="relative">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5">
+          <div className="relative shrink-0">
             <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center overflow-hidden border-2 border-border">
               {(editing ? editForm.avatar_url : profile?.avatar_url) ? (
                 <img
@@ -214,7 +213,7 @@ export default function ProfilePage() {
               </div>
             )}
           </div>
-          <div className="flex-1 space-y-1">
+          <div className="flex-1 space-y-1 text-center sm:text-left w-full">
             {editing ? (
               <div className="space-y-3">
                 <div>
@@ -245,13 +244,13 @@ export default function ProfilePage() {
                 <h2 className="text-xl font-bold text-foreground">
                   {profile?.display_name ?? "Finance Learner"}
                 </h2>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Mail className="h-3.5 w-3.5" />
-                    {user?.email}
+                <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5 truncate max-w-full">
+                    <Mail className="h-3.5 w-3.5 shrink-0" />
+                    <span className="truncate">{user?.email}</span>
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5" />
+                    <Calendar className="h-3.5 w-3.5 shrink-0" />
                     Joined {joinedDate}
                   </span>
                 </div>
@@ -262,7 +261,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Progress */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-5">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-5">
         <h3 className="text-lg font-semibold text-foreground">Learning Progress</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
@@ -311,18 +310,18 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Stats */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="bg-card rounded-2xl p-5 border border-border text-center">
+      <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-4">
+        <div className="bg-card rounded-2xl p-4 sm:p-5 border border-border text-center">
           <Trophy className="h-6 w-6 text-accent mx-auto mb-2" />
           <p className="text-2xl font-bold text-foreground">{quizzesTaken}</p>
           <p className="text-xs text-muted-foreground">Quizzes Taken</p>
         </div>
-        <div className="bg-card rounded-2xl p-5 border border-border text-center">
+        <div className="bg-card rounded-2xl p-4 sm:p-5 border border-border text-center">
           <BookOpen className="h-6 w-6 text-primary mx-auto mb-2" />
           <p className="text-2xl font-bold text-foreground">{xp}</p>
           <p className="text-xs text-muted-foreground">Total XP</p>
         </div>
-        <div className="bg-card rounded-2xl p-5 border border-border text-center">
+        <div className="bg-card rounded-2xl p-4 sm:p-5 border border-border text-center">
           <Flame className="h-6 w-6 text-warning mx-auto mb-2" />
           <p className="text-2xl font-bold text-foreground">{streak}</p>
           <p className="text-xs text-muted-foreground">Day Streak</p>
@@ -330,7 +329,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Achievements */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-4">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-4">
         <h3 className="text-lg font-semibold text-foreground">Achievements</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {achievements.map((a) => (
@@ -366,7 +365,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Preferences */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-5">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-5">
         <h3 className="text-lg font-semibold text-foreground">Learning Preferences</h3>
 
         {/* Difficulty */}
