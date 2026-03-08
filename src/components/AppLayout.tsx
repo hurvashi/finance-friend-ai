@@ -9,7 +9,9 @@ import {
   Calculator,
   Flame,
   Star,
+  LogOut,
 } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/" },
