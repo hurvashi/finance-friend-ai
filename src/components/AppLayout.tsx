@@ -57,12 +57,21 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <div className="mt-auto px-3 py-3 rounded-xl bg-muted">
-          <div className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
-            <Flame className="h-4 w-4 text-warning" />
-            3 Day Streak
+        <div className="mt-auto space-y-2">
+          <div className="px-3 py-3 rounded-xl bg-muted">
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
+              <Flame className="h-4 w-4 text-warning" />
+              3 Day Streak
+            </div>
+            <p className="text-xs text-muted-foreground">Keep learning daily!</p>
           </div>
-          <p className="text-xs text-muted-foreground">Keep learning daily!</p>
+          <button
+            onClick={signOut}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground hover:bg-muted transition-colors w-full"
+          >
+            <LogOut className="h-[18px] w-[18px]" />
+            Sign Out
+          </button>
         </div>
       </aside>
 
