@@ -47,8 +47,9 @@ export default function ProgressPage() {
           <div className="h-full bg-primary rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
         </div>
       </div>
+      {/* Personalized Feedback */}
+      <FeedbackCard completedLessons={completedLessons} />
 
-      {/* Module breakdown */}
       {modules.map((mod) => {
         const modLessons = lessons.filter((l) => l.module === mod);
         const modDone = modLessons.filter((l) => completedLessons.includes(l.id)).length;
