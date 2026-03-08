@@ -9,10 +9,11 @@ export default function Dashboard() {
   const totalLessons = lessons.length;
   const pct = Math.round((completedCount / totalLessons) * 100);
   const nextLesson = lessons.find((l) => !completedLessons.includes(l.id));
+  const modules = Array.from(new Set(lessons.map((l) => l.module)));
+  const currentModule = nextLesson?.module ?? modules[modules.length - 1];
 
   return (
     <div className="space-y-8 animate-slide-up">
-      {/* Header */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-foreground">Welcome back! 👋</h1>
         <p className="text-muted-foreground mt-1">Continue your finance journey</p>
@@ -28,16 +29,19 @@ export default function Dashboard() {
 
       {/* Progress bar */}
       <div className="bg-card rounded-2xl p-6 border border-border">
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-semibold text-foreground">Learning Progress</span>
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-semibold text-foreground">Overall Progress</span>
           <span className="text-sm font-bold text-primary">{pct}%</span>
         </div>
-        <div className="h-3 bg-muted rounded-full overflow-hidden">
+        <div className="h-3 bg-muted rounded-full overflow-hidden mb-3">
           <div
             className="h-full bg-primary rounded-full transition-all duration-500"
             style={{ width: `${pct}%` }}
           />
         </div>
+        <p className="text-xs text-muted-foreground">
+          Currently on: <span className="font-medium text-foreground">{currentModule}</span> · {6} modules · {totalLessons} lessons
+        </p>
       </div>
 
       {/* Quick actions */}
@@ -45,7 +49,7 @@ export default function Dashboard() {
         {nextLesson && (
           <Link
             to="/lessons"
-            className="bg-card rounded-2xl p-6 border border-border hover:border-primary/40 transition-colors group"
+            className="bg-card rounded-2xl p-6 border border-border hover:border-primary/40 transition-colors"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -62,7 +66,7 @@ export default function Dashboard() {
 
         <Link
           to="/tutor"
-          className="bg-card rounded-2xl p-6 border border-border hover:border-accent/40 transition-colors group"
+          className="bg-card rounded-2xl p-6 border border-border hover:border-accent/40 transition-colors"
         >
           <div className="flex items-center gap-3 mb-3">
             <div className="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center">
