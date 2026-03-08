@@ -1,16 +1,3 @@
-import { create } from "zustand";
-
-interface ProgressState {
-  completedLessons: string[];
-  quizScores: Record<string, number>;
-  xp: number;
-  streak: number;
-  completeLesson: (id: string) => void;
-  recordQuiz: (lessonId: string, score: number) => void;
-  addXp: (amount: number) => void;
-}
-
-// Simple zustand-like state using React context would be overkill; let's use a simple hook with localStorage
 import { useState, useEffect, useCallback } from "react";
 
 interface UserProgress {
