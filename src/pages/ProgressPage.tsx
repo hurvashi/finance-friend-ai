@@ -1,6 +1,8 @@
 import { useProgress } from "@/hooks/useProgress";
 import { lessons } from "@/data/financeData";
-import { CheckCircle2, Circle, Zap, BookOpen, Trophy } from "lucide-react";
+import { getProgressFeedback } from "@/data/progressFeedback";
+import { CheckCircle2, Circle, Zap, BookOpen, Trophy, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ProgressPage() {
   const { completedLessons, xp, quizScores } = useProgress();
