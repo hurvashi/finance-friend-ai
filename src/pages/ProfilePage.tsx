@@ -169,23 +169,23 @@ export default function ProfilePage() {
 
   return (
     <div className="space-y-6 animate-slide-up">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-foreground">Profile</h1>
-          <p className="text-muted-foreground mt-1">Manage your account & preferences</p>
+          <p className="text-muted-foreground mt-1 text-sm">Manage your account & preferences</p>
         </div>
         {!editing ? (
-          <Button variant="outline" size="sm" onClick={() => setEditing(true)}>
+          <Button variant="outline" size="sm" onClick={() => setEditing(true)} className="w-full sm:w-auto">
             <Pencil className="h-4 w-4 mr-2" />
             Edit Profile
           </Button>
         ) : (
-          <div className="flex gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setEditing(false)}>
+          <div className="flex gap-2 w-full sm:w-auto">
+            <Button variant="ghost" size="sm" onClick={() => setEditing(false)} className="flex-1 sm:flex-initial">
               <X className="h-4 w-4 mr-2" />
               Cancel
             </Button>
-            <Button size="sm" onClick={handleSave} disabled={saving}>
+            <Button size="sm" onClick={handleSave} disabled={saving} className="flex-1 sm:flex-initial">
               <Check className="h-4 w-4 mr-2" />
               Save
             </Button>
