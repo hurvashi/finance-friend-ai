@@ -4,7 +4,6 @@ import { useProgress } from "@/hooks/useProgress";
 import { lessons } from "@/data/financeData";
 import { getTodayLesson } from "@/data/dailyLessons";
 import { useState } from "react";
-import { lessons } from "@/data/financeData";
 
 export default function Dashboard() {
   const { completedLessons, xp, quizScores } = useProgress();
