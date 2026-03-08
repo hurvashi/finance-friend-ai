@@ -84,13 +84,8 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      {/* Daily tip */}
-      <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6">
-        <p className="text-xs font-semibold text-primary mb-1">💡 Daily Tip</p>
-        <p className="text-sm text-foreground">
-          "Pay yourself first — set up automatic transfers to savings before spending on anything else."
-        </p>
-      </div>
+      {/* Daily Lesson */}
+      <DailyLessonCard />
     </div>
   );
 }
