@@ -10,6 +10,7 @@ import LessonsPage from "@/pages/LessonsPage";
 import QuizPage from "@/pages/QuizPage";
 import ProgressPage from "@/pages/ProgressPage";
 import CalculatorPage from "@/pages/CalculatorPage";
+import LessonDetailPage from "@/pages/LessonDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
