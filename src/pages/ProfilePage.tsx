@@ -310,7 +310,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Stats */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-4">
         <div className="bg-card rounded-2xl p-5 border border-border text-center">
           <Trophy className="h-6 w-6 text-accent mx-auto mb-2" />
           <p className="text-2xl font-bold text-foreground">{quizzesTaken}</p>
