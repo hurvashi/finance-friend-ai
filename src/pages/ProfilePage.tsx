@@ -193,10 +193,9 @@ export default function ProfilePage() {
         )}
       </div>
 
-      {/* User Info Card */}
-      <div className="bg-card rounded-2xl p-6 border border-border">
-        <div className="flex items-center gap-5">
-          <div className="relative">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5">
+          <div className="relative shrink-0">
             <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center overflow-hidden border-2 border-border">
               {(editing ? editForm.avatar_url : profile?.avatar_url) ? (
                 <img
@@ -214,7 +213,7 @@ export default function ProfilePage() {
               </div>
             )}
           </div>
-          <div className="flex-1 space-y-1">
+          <div className="flex-1 space-y-1 text-center sm:text-left w-full">
             {editing ? (
               <div className="space-y-3">
                 <div>
@@ -245,13 +244,13 @@ export default function ProfilePage() {
                 <h2 className="text-xl font-bold text-foreground">
                   {profile?.display_name ?? "Finance Learner"}
                 </h2>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Mail className="h-3.5 w-3.5" />
-                    {user?.email}
+                <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5 truncate max-w-full">
+                    <Mail className="h-3.5 w-3.5 shrink-0" />
+                    <span className="truncate">{user?.email}</span>
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5" />
+                    <Calendar className="h-3.5 w-3.5 shrink-0" />
                     Joined {joinedDate}
                   </span>
                 </div>
