@@ -218,10 +218,11 @@ export default function TutorChat() {
         <div className="flex flex-wrap gap-2 mb-3">
           {[
             "Teach me about budgeting",
-            "What is compound interest?",
-            "Explain inflation",
-            "How do stocks work?",
-            "Tell me about emergency funds",
+            "What is a credit score?",
+            "How do ETFs work?",
+            "Explain compound interest",
+            "How should I start investing?",
+            "What is dollar cost averaging?",
           ].map((q) => (
             <button
               key={q}
