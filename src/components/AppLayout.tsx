@@ -26,7 +26,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside className="hidden md:flex w-64 flex-col border-r border-sidebar-border bg-sidebar p-4 gap-1">
+      <aside className="hidden md:flex w-64 flex-col border-r border-sidebar-border bg-sidebar p-4 gap-1 overflow-hidden">
         <div className="flex items-center gap-2 px-3 py-4 mb-4">
           <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center">
             <Star className="h-5 w-5 text-primary-foreground" />
