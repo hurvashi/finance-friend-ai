@@ -116,3 +116,40 @@ function StatCard({
     </div>
   );
 }
+
+function DailyLessonCard() {
+  const daily = getTodayLesson();
+  const [showReflection, setShowReflection] = useState(false);
+
+  return (
+    <div className="bg-card rounded-2xl border border-border overflow-hidden">
+      <div className="bg-primary/5 border-b border-primary/10 px-6 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="text-lg">{daily.emoji}</span>
+          <span className="text-xs font-semibold text-primary">Daily Lesson</span>
+          <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">{daily.topic}</span>
+        </div>
+      </div>
+      <div className="p-6 space-y-4">
+        <h3 className="text-base font-bold text-foreground">{daily.title}</h3>
+        <p className="text-sm leading-relaxed text-foreground/80">{daily.body}</p>
+        <div className="bg-muted rounded-xl p-4">
+          <p className="text-xs font-semibold text-foreground mb-1">💡 Example</p>
+          <p className="text-sm text-muted-foreground">{daily.example}</p>
+        </div>
+        <button
+          onClick={() => setShowReflection(!showReflection)}
+          className="flex items-center gap-2 text-xs font-semibold text-accent hover:underline"
+        >
+          <HelpCircle className="h-3.5 w-3.5" />
+          {showReflection ? "Hide reflection question" : "🤔 Reflection question"}
+        </button>
+        {showReflection && (
+          <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 animate-slide-up">
+            <p className="text-sm text-foreground italic">"{daily.reflection}"</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
