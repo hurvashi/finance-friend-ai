@@ -24,6 +24,7 @@ const navItems = [
 
 export default function AppLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
+  const { signOut, user } = useAuth();
 
   return (
     <div className="flex min-h-screen bg-background">
