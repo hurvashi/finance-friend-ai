@@ -1,7 +1,8 @@
 # Finance Mentor AI
 
-**Live App:** [https://financementor-ai.lovable.app](https://financementor-ai.lovable.app)
+**Live App:** [https://financementor-ai.lovable.app]
 
+[https://finance-friend-ai.vercel.app/]
 ## About
 
 Finance Mentor AI is a beginner-friendly web application that helps users learn personal finance step-by-step. It combines an AI-powered tutor, structured lessons, interactive quizzes, and practical tools like a financial calculator — all wrapped in a clean, modern dashboard experience.
