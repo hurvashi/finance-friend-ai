@@ -47,8 +47,10 @@ export default function LessonsPage() {
             </div>
 
             <div className="ml-4 border-l-2 border-border pl-5 mt-3 space-y-3">
-              {modLessons.map((lesson, lessonIdx) => {
+              {modLessons.map((lesson) => {
                 const done = completedLessons.includes(lesson.id);
+                const hasContent = !!lessonContent[lesson.id];
+                const hasQuiz = !!quizzes[lesson.id];
                 return (
                   <div
                     key={lesson.id}
