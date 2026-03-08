@@ -72,19 +72,27 @@ export default function LessonsPage() {
                           </span>
                         </div>
                         <p className="text-xs text-muted-foreground mb-2">{lesson.description}</p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 flex-wrap">
                           <span className="flex items-center gap-1 text-xs text-muted-foreground">
                             <Clock className="h-3 w-3" /> {lesson.duration}
                           </span>
+                          {hasContent && (
+                            <Link
+                              to={`/lesson/${lesson.id}`}
+                              className="flex items-center gap-0.5 text-xs font-semibold text-primary hover:underline"
+                            >
+                              <BookOpen className="h-3 w-3" /> Read Lesson
+                            </Link>
+                          )}
                           {!done && (
                             <button
                               onClick={() => completeLesson(lesson.id)}
-                              className="text-xs font-semibold text-primary hover:underline"
+                              className="text-xs font-semibold text-muted-foreground hover:text-primary hover:underline"
                             >
                               Mark Complete
                             </button>
                           )}
-                          {done && (
+                          {done && hasQuiz && (
                             <Link
                               to={`/quiz?lesson=${lesson.id}`}
                               className="flex items-center gap-0.5 text-xs font-semibold text-accent hover:underline"
