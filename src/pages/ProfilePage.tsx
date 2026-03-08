@@ -316,7 +316,7 @@ export default function ProfilePage() {
           <p className="text-2xl font-bold text-foreground">{quizzesTaken}</p>
           <p className="text-xs text-muted-foreground">Quizzes Taken</p>
         </div>
-        <div className="bg-card rounded-2xl p-5 border border-border text-center">
+        <div className="bg-card rounded-2xl p-4 sm:p-5 border border-border text-center">
           <BookOpen className="h-6 w-6 text-primary mx-auto mb-2" />
           <p className="text-2xl font-bold text-foreground">{xp}</p>
           <p className="text-xs text-muted-foreground">Total XP</p>
