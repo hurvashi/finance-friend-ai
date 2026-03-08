@@ -1,6 +1,7 @@
-import { lessons } from "@/data/financeData";
+import { lessons, quizzes } from "@/data/financeData";
+import { lessonContent } from "@/data/lessonContent";
 import { useProgress } from "@/hooks/useProgress";
-import { CheckCircle2, Circle, Clock, ChevronRight } from "lucide-react";
+import { CheckCircle2, Circle, Clock, ChevronRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const MODULE_ICONS = ["💰", "📊", "🏦", "📈", "📉", "🛡️"];
@@ -46,8 +47,10 @@ export default function LessonsPage() {
             </div>
 
             <div className="ml-4 border-l-2 border-border pl-5 mt-3 space-y-3">
-              {modLessons.map((lesson, lessonIdx) => {
+              {modLessons.map((lesson) => {
                 const done = completedLessons.includes(lesson.id);
+                const hasContent = !!lessonContent[lesson.id];
+                const hasQuiz = !!quizzes[lesson.id];
                 return (
                   <div
                     key={lesson.id}
@@ -71,19 +74,27 @@ export default function LessonsPage() {
                           </span>
                         </div>
                         <p className="text-xs text-muted-foreground mb-2">{lesson.description}</p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 flex-wrap">
                           <span className="flex items-center gap-1 text-xs text-muted-foreground">
                             <Clock className="h-3 w-3" /> {lesson.duration}
                           </span>
+                          {hasContent && (
+                            <Link
+                              to={`/lesson/${lesson.id}`}
+                              className="flex items-center gap-0.5 text-xs font-semibold text-primary hover:underline"
+                            >
+                              <BookOpen className="h-3 w-3" /> Read Lesson
+                            </Link>
+                          )}
                           {!done && (
                             <button
                               onClick={() => completeLesson(lesson.id)}
-                              className="text-xs font-semibold text-primary hover:underline"
+                              className="text-xs font-semibold text-muted-foreground hover:text-primary hover:underline"
                             >
                               Mark Complete
                             </button>
                           )}
-                          {done && (
+                          {done && hasQuiz && (
                             <Link
                               to={`/quiz?lesson=${lesson.id}`}
                               className="flex items-center gap-0.5 text-xs font-semibold text-accent hover:underline"

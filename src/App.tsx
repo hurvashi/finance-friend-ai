@@ -10,6 +10,7 @@ import LessonsPage from "@/pages/LessonsPage";
 import QuizPage from "@/pages/QuizPage";
 import ProgressPage from "@/pages/ProgressPage";
 import CalculatorPage from "@/pages/CalculatorPage";
+import LessonDetailPage from "@/pages/LessonDetailPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Dashboard />} />
             <Route path="/tutor" element={<TutorChat />} />
             <Route path="/lessons" element={<LessonsPage />} />
+            <Route path="/lesson/:id" element={<LessonDetailPage />} />
             <Route path="/quiz" element={<QuizPage />} />
             <Route path="/progress" element={<ProgressPage />} />
             <Route path="/calculator" element={<CalculatorPage />} />
