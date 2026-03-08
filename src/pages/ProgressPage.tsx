@@ -1,6 +1,8 @@
 import { useProgress } from "@/hooks/useProgress";
 import { lessons } from "@/data/financeData";
-import { CheckCircle2, Circle, Zap, BookOpen, Trophy } from "lucide-react";
+import { getProgressFeedback } from "@/data/progressFeedback";
+import { CheckCircle2, Circle, Zap, BookOpen, Trophy, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ProgressPage() {
   const { completedLessons, xp, quizScores } = useProgress();
@@ -45,8 +47,9 @@ export default function ProgressPage() {
           <div className="h-full bg-primary rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
         </div>
       </div>
+      {/* Personalized Feedback */}
+      <FeedbackCard completedLessons={completedLessons} />
 
-      {/* Module breakdown */}
       {modules.map((mod) => {
         const modLessons = lessons.filter((l) => l.module === mod);
         const modDone = modLessons.filter((l) => completedLessons.includes(l.id)).length;
@@ -82,6 +85,44 @@ export default function ProgressPage() {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+function FeedbackCard({ completedLessons }: { completedLessons: string[] }) {
+  const fb = getProgressFeedback(completedLessons);
+
+  return (
+    <div className="bg-card rounded-2xl border border-border overflow-hidden">
+      <div className="bg-primary/5 border-b border-primary/10 px-6 py-3 flex items-center gap-2">
+        <Sparkles className="h-4 w-4 text-primary" />
+        <span className="text-sm font-semibold text-primary">{fb.headline}</span>
+      </div>
+      <div className="p-6 space-y-4">
+        <p className="text-sm leading-relaxed text-foreground/80">{fb.message}</p>
+
+        {fb.milestone && (
+          <div className="bg-warning/5 border border-warning/20 rounded-xl p-4">
+            <p className="text-sm font-medium text-foreground">{fb.milestone}</p>
+          </div>
+        )}
+
+        <div className="bg-muted rounded-xl p-4">
+          <p className="text-sm text-foreground/70 italic">"{fb.encouragement}"</p>
+        </div>
+
+        {fb.nextSuggestion && fb.nextLessonId && (
+          <div className="flex items-center justify-between bg-accent/5 border border-accent/20 rounded-xl p-4">
+            <p className="text-sm text-foreground/80 flex-1">{fb.nextSuggestion}</p>
+            <Link
+              to={`/lesson/${fb.nextLessonId}`}
+              className="ml-3 shrink-0 flex items-center gap-1 px-4 py-2 bg-primary text-primary-foreground text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Start <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
