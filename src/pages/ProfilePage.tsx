@@ -365,7 +365,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Preferences */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-5">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-5">
         <h3 className="text-lg font-semibold text-foreground">Learning Preferences</h3>
 
         {/* Difficulty */}
