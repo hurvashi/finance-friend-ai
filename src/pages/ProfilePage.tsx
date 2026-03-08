@@ -329,7 +329,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Achievements */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-4">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-4">
         <h3 className="text-lg font-semibold text-foreground">Achievements</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {achievements.map((a) => (
