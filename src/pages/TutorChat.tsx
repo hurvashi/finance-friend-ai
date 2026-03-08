@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User } from "lucide-react";
+import { findSmartAnswer } from "@/data/smartAnswers";
 
 interface Message {
   role: "user" | "assistant";
