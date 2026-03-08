@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
-import { BookOpen, MessageCircle, Trophy, TrendingUp, Flame, Zap } from "lucide-react";
+import { BookOpen, MessageCircle, Trophy, TrendingUp, Flame, Zap, HelpCircle } from "lucide-react";
 import { useProgress } from "@/hooks/useProgress";
+import { lessons } from "@/data/financeData";
+import { getTodayLesson } from "@/data/dailyLessons";
+import { useState } from "react";
 import { lessons } from "@/data/financeData";
 
 export default function Dashboard() {
