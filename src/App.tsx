@@ -12,6 +12,7 @@ import QuizPage from "@/pages/QuizPage";
 import ProgressPage from "@/pages/ProgressPage";
 import CalculatorPage from "@/pages/CalculatorPage";
 import LessonDetailPage from "@/pages/LessonDetailPage";
+import ProfilePage from "@/pages/ProfilePage";
 import AuthPage from "@/pages/AuthPage";
 import NotFound from "./pages/NotFound";
 
