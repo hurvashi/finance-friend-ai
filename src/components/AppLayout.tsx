@@ -80,7 +80,13 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       {/* Mobile nav */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card border-t border-border">
         <nav className="flex justify-around py-2">
-          {navItems.slice(0, 5).map(({ icon: Icon, label, path }) => {
+          {[
+            navItems[0], // Dashboard
+            navItems[1], // AI Tutor
+            navItems[2], // Lessons
+            navItems[4], // Progress
+            navItems[6], // Profile
+          ].map(({ icon: Icon, label, path }) => {
             const active = location.pathname === path;
             return (
               <Link
