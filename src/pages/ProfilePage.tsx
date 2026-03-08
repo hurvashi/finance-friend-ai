@@ -261,7 +261,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Learning Progress */}
-      <div className="bg-card rounded-2xl p-6 border border-border space-y-5">
+      <div className="bg-card rounded-2xl p-4 sm:p-6 border border-border space-y-5">
         <h3 className="text-lg font-semibold text-foreground">Learning Progress</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
