@@ -10,6 +10,7 @@ import {
   Flame,
   Star,
   LogOut,
+  UserCircle,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -20,6 +21,7 @@ const navItems = [
   { icon: Trophy, label: "Quizzes", path: "/quiz" },
   { icon: BarChart3, label: "Progress", path: "/progress" },
   { icon: Calculator, label: "Calculator", path: "/calculator" },
+  { icon: UserCircle, label: "Profile", path: "/profile" },
 ];
 
 export default function AppLayout({ children }: { children: ReactNode }) {
