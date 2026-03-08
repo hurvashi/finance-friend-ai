@@ -20,7 +20,7 @@ Finance Mentor AI is a beginner-friendly web application that helps users learn 
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, Vite, Tailwind CSS, shadcn/ui
-- **Backend:** Lovable Cloud (authentication, database, real-time sync)
+- **Backend:** Lovable Cloud (authentication, database, real-time sync), Lovable AI(Google Gemini)
 - **Charts:** Recharts
 - **Routing:** React Router
 
