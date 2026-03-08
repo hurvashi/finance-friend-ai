@@ -42,6 +42,7 @@ function AppRoutes() {
         <Route path="/lesson/:id" element={<LessonDetailPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/progress" element={<ProgressPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/calculator" element={<CalculatorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
